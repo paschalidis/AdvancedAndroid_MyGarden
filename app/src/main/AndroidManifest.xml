@@ -8,7 +8,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <receiver android:name=".PlantWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -19,10 +18,12 @@
                 android:resource="@xml/plant_widget_info" />
         </receiver>
 
-        <!-- TODO (2): Create a plant watering service that extends IntentService and supports the
-        action ACTION_WATER_PLANTS which updates last_watered timestamp for all plants still alive -->
+        <!--
+        TODO (2): Create a plant watering service that extends IntentService and supports the
+        action ACTION_WATER_PLANTS which updates last_watered timestamp for all plants still alive
+        -->
         <!-- TODO (3): Add a service tag for PlantWateringService -->
-
+        <service android:name=".PlantWateringService" />
         <provider
             android:name=".provider.PlantContentProvider"
             android:authorities="com.example.android.mygarden"
@@ -33,6 +34,7 @@
             android:label="@string/title_activity_my_garden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,6 +44,10 @@
         <activity
             android:name=".ui.AddPlantActivity"
             android:label="@string/title_activity_add_plant" />
+
+        <!--<service-->
+            <!--android:name=".PlantWateringService"-->
+            <!--android:exported="false"></service>-->
     </application>
 
 </manifest>
